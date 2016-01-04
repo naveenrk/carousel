@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Test Angular </title>
+        
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <script src="js/app.js"></script>
+        <style type='text/css'>
+            .hideable {
+                display: none;
+            }
+            img {
+                height: 500px;
+                wdith : 500px;
+            }
+        </style>
+    </head>
+    
+    <body>
+         <div>
+            <ul style='list-style-type:none; margin-left:-2em'>
+                <li id='1' class='hideable' style="display: block;"><img src="image/one.jpg" alt="one" /></li>
+                <li id='2' class='hideable'><img src="image/two.jpg" alt="two" /></li>
+                <li id='3' class='hideable'><img src="image/three.jpg" alt="three" /></li>
+                <li id='4' class='hideable'><img src="image/four.jpg" alt="four" /></li>
+                <li id='5' class='hideable'><img src="image/five.jpg" alt="five" /></li>
+            </ul> 
+        </div>
+        <form>
+            <input type="button" value="Back" onclick="toggleSlide(false)"/>
+            <input type="button" value="Forward" onclick="toggleSlide(true)"/>
+            
+            <input id="pauseButton" type="button" value="Pause" onclick="toggleInterval()"/>
+            <input id="firstButton" type="button" value="First" onclick="goToEdge(false)"/>
+            <input id="lastButton" type="button" value="Last" onclick="goToEdge(true)"/>
+        </form>
+        Slide <!-- you can change "Slide" to Page, Item, etc. -->
+        <span id="slideNumber">
+            <script type="text/javascript">
+                // to display first image count
+                var eles = document.getElementsByClassName("hideable");
+                var vis = getVisibleElement(eles) + 1;
+                document.write(vis);
+            </script>
+        </span>
+            of <!-- Or use "/", as in Page 3/7 -->
+        <script type="text/javascript">
+            // Write the number of slides to HTML. Dynamically changes as you add or remove slides.
+            document.write(document.getElementsByClassName("hideable").length);
+        </script>
+    </body>
+</html>
